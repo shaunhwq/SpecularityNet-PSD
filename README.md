@@ -1,3 +1,39 @@
+# SpecNet
+
+## Installation
+
+```
+conda create -n specnet_psd python=3.8
+conda activate specnet_psd
+pip3 install -r requirements.txt
+```
+
+Current requirements.txt specifies PyTorch 1.9.0 along with others as I'm unable to find 1.7 for my mac
+
+sklearn-image seems to require < 0.15 for compare_ssim and compare_psnr, upgraded to latest.
+
+## Running Demo for testing own images
+
+Since author didn't provide the weights we gotta download and train the model ourselves first, follow the relevant instructions from the author's repo.
+
+Subsequently...
+```
+usage: demo_psdnet.py [-h] -i INPUT_DIR -o OUTPUT_DIR [-d DEVICE] [-w WEIGHTS] [-s MODEL_INPUT_SIZE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT_DIR, --input_dir INPUT_DIR
+                        Path to input folder containing images
+  -o OUTPUT_DIR, --output_dir OUTPUT_DIR
+                        Path to output folder
+  -d DEVICE, --device DEVICE
+                        Device to use e.g. 'cuda:0', 'cuda:1', 'cpu'
+  -w WEIGHTS, --weights WEIGHTS
+                        Path to weights
+  -s MODEL_INPUT_SIZE, --model_input_size MODEL_INPUT_SIZE
+                        Shortside size to resize to before feeding into model.
+```
+
 # SpecularityNet-TMM
 
 This is the implementation of our paper "Single-Image Specular Highlight Removal via Real-World Dataset Construction" that will be published in TMM.

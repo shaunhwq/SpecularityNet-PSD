@@ -1,5 +1,5 @@
 # Metrics/Indexes
-from skimage.measure import compare_ssim, compare_psnr
+from skimage.metrics import structural_similarity, peak_signal_noise_ratio
 from functools import partial
 import numpy as np
 
@@ -18,8 +18,8 @@ class Bandwise(object):
             bwindex.append(index)
         return bwindex
 
-cal_bwpsnr = Bandwise(partial(compare_psnr, data_range=255))
-cal_bwssim = Bandwise(partial(compare_ssim, data_range=255))
+cal_bwpsnr = Bandwise(partial(peak_signal_noise_ratio, data_range=255))
+cal_bwssim = Bandwise(partial(structural_similarity, data_range=255))
 
 
 def compare_ncc(x, y):
